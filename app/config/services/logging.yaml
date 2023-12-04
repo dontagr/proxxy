@@ -1,0 +1,18 @@
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            array $appVersion: "%app.version%"
+
+    monolog.formatter.request_id:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - "[%%datetime%%] [%%context.runtime_uuid%%] %%channel%%.%%level_name%%: %%message%% %%context%% %%extra%%\n"
+
+    App\Logger\RequestIdProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    Psr\Log\NullLogger: ~

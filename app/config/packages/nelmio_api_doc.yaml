@@ -1,0 +1,15 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Proxy App
+            description: This is an awesome app!
+            version: 1.0.0
+        security: ~
+        servers:
+            - url: http://localhost:8080
+              description: API over HTTP
+    areas: # to filter documented areas
+        with_annotation: false
+        path_patterns:
+            - ^/task(?!/doc$) # Accepts routes under /api except /api/doc
+            - ^/$

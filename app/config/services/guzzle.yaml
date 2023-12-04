@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Service\GuzzleRequestOptions:
+        public: false
+
+    guzzle.handler_stack:
+        class: GuzzleHttp\HandlerStack
+        factory: [GuzzleHttp\HandlerStack, create]
+        calls:
+            - [push, ['@App\Service\GuzzleRequestOptions']]
+
+    GuzzleHttp\Client:
+        arguments:
+            - handler: '@guzzle.handler_stack'
+              timeout: 120

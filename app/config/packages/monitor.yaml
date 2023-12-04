@@ -1,0 +1,17 @@
+liip_monitor:
+    # enabling the controller requires that `assets` are enabled in the framework bundle
+    enable_controller: true
+    checks:
+        php_extensions: [curl, json]
+        php_version:
+            '8.1': '>='
+        doctrine_dbal: [default]
+        guzzle_http_service:
+            api:
+                url: '%env(string:key:scheme:url:GEO_IP_ENDPOINT)%://%env(string:key:host:url:GEO_IP_ENDPOINT)%'
+                headers: [ ]
+                options: [ ]
+                status_code: 200
+                content: null
+                method: GET
+                body: null

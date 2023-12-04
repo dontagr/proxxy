@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% set holder = "127.0.0.1:80
+127.0.0.1:81" %}
+
+{% block title %}Check page{% endblock %}
+
+{% block h1 %}Check page{% endblock %}
+
+{% block body %}
+    <style>
+        .wrapper {padding:20px 0 0 0;}
+    </style>
+    <div class="wrapper">
+        Задача №{{ task.id }}
+
+        <table class="table">
+            <tr>
+                <th>ip</th>
+                <th>port</th>
+                <td>type</td>
+                <td>status</td>
+                <td>country</td>
+            </tr>
+        {% for proxy in task.proxies %}
+            <tr>
+                <td>{{ proxy.ip }}</td>
+                <td>{{ proxy.port }}</td>
+                <td>{{ proxy.getTypeText }}</td>
+                <td>{{ proxy.getStatusText }}</td>
+                <td>{{ proxy.getCountry }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

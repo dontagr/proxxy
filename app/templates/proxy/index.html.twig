@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index page{% endblock %}
+
+{% block h1 %}Index page{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <form id="proxyForm">
+            <textarea name="list" class="form-control" rows="10" placeholder="{{ holder }}"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary proxy-button">Отправить</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .wrapper {padding:20px 0 0 0;}
+        .proxy-button {width:120px;height:40px;}
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/ProxyFormService.js"></script>
+{% endblock %}

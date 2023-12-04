@@ -1,0 +1,9 @@
+App\Dto\Exchange\CreateTaskRequest:
+  properties:
+    list:
+      expose: true
+      serialized_name: list
+      accessor:
+        getter: getList
+        setter: setList
+      type: string

@@ -1,0 +1,19 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        type: annotation
+        namespace: App\Controller
+    type: annotation
+
+app.swagger_ui:
+    condition: "env('APP_ENV') in ['dev']"
+    path: doc
+    methods: GET
+    defaults:
+        _controller: nelmio_api_doc.controller.swagger_ui
+
+healthcheck:
+    resource: "@LiipMonitorBundle/Resources/config/routing.xml"
+    prefix: /health
+    defaults:
+        version: 1
