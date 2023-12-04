@@ -13,16 +13,26 @@ docker exec -it php bash
 // Index page
 http://localhost:8080
 // check page
-http://localhost:8080/check/{taskId}
+http://localhost:8080/task/{taskId}
 ```
 
 ### HealthCheck
 ```
-http://localhost/dp/v1/monitor/health/
+http://localhost:8080/health/
 
 Добавил проверку
 необходимых расширений
 версии php
 доступности базы данных
 доступности сервиса geo ip
+```
+
+### Swager
+```
+http://localhost:8080/doc
+```
+
+### Запуск команды для проверки проксей
+```
+symfony console app:proxy-check
 ```
